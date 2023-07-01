@@ -1,18 +1,13 @@
 <div class="container" [ngClass]="{'dark-mode': darkMode}">
   <header>
     <h1 class="page-heading">NewsHub: Your Gateway to Timely and Reliable News</h1>
-
     <div class="dark-mode-toggle">
-      <label class="switch">
-        <input type="checkbox" id="darkModeToggle" (change)="enableDarkMode()">
-        <span class="slider round"></span>
-      </label>
-      <label for="darkModeToggle">Dark Mode</label>
+      <mat-slide-toggle (change)="enableDarkMode()">Dark Mode</mat-slide-toggle>
     </div>
   </header>
 
   <div class="news-container">
-    <div class="news-card" *ngFor="let article of targetArray | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalItems }">
+    <div class="news-card" *ngFor="let article of pagedHeadlines">
       <div class="news-image">
         <img [src]="article.image" alt="Article Image" />
       </div>
@@ -22,6 +17,7 @@
         <a class="read-more-link" [href]="article.url" target="_blank">Read More</a>
       </div>
     </div>
-    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPageIndex - 1"
+                    (page)="pageChanged($event)"></mat-paginator>
   </div>
 </div>

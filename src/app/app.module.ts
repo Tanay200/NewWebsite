@@ -8,6 +8,8 @@ import { HeadlinesService } from './service/headlines.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule
   ],
   providers: [HeadlinesService],
   bootstrap: [AppComponent]
