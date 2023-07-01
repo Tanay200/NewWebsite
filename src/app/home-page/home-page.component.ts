@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   totalItems: number = 49; // Total number of items
   darkMode: boolean = false;
   pagedHeadlines: any[] = [];
-  pageSizeOptions: number[] = [5, 10, 25, 50]; // Available page sizes
+  pageSizeOptions: number[] = [8, 10, 25, 50]; // Available page sizes
 
   constructor(private headlinesService: HeadlinesService) { }
 
@@ -39,6 +39,12 @@ export class HomePageComponent implements OnInit {
   updatePagedHeadlines(): void {
     const startIndex = (this.currentPageIndex - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.pagedHeadlines = this.headlines.slice(startIndex, endIndex);
+    this.pagedHeadlines = this.headlines.slice(3, 51);
   }
+
+  gotoPage(url:any){
+    window.open(url, '_blank');
+  }
+
 }
+

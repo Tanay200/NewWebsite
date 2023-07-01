@@ -123,3 +123,7 @@ header {
 .dark-mode .read-more-link {
   color: #007bff;
 }
+::ng-deep .dark-mode .mat-paginator-outer-container {
+  background-color: #152238;
+  color: #fff;
+}
