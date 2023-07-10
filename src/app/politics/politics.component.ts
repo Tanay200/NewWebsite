@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HeadlinesService } from '../service/headlines.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: 'app-politics',
+  templateUrl: './politics.component.html',
+  styleUrls: ['./politics.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class PoliticsComponent implements OnInit {
+
+  constructor(public headlinesService : HeadlinesService) { }
 
   headlines: any = [];
   pageSize = 8; // Number of items per page
@@ -16,10 +18,8 @@ export class HomePageComponent implements OnInit {
   pagedHeadlines: any[] = [];
   pageSizeOptions: number[] = [8, 10, 25, 50]; // Available page sizes
 
-  constructor(public headlinesService: HeadlinesService) { }
-
   ngOnInit(): void {
-    this.headlinesService.getHeadlines().subscribe((response) => {
+    this.headlinesService.getPoliticalNews().subscribe((response) => {
       this.headlines = response.News;
       this.headlines = this.headlines.filter((obj: { image: string, description: string }) => obj.image !== '' && obj.description != '');
       this.updatePagedHeadlines(); // Update the pagedHeadlines array
@@ -46,5 +46,5 @@ export class HomePageComponent implements OnInit {
     window.open(url, '_blank');
   }
 
-}
 
+}

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HeadlinesService } from '../service/headlines.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: 'app-business',
+  templateUrl: './business.component.html',
+  styleUrls: ['./business.component.css']
 })
-export class HomePageComponent implements OnInit {
+export class BusinessComponent implements OnInit {
 
   headlines: any = [];
   pageSize = 8; // Number of items per page
@@ -19,12 +19,14 @@ export class HomePageComponent implements OnInit {
   constructor(public headlinesService: HeadlinesService) { }
 
   ngOnInit(): void {
-    this.headlinesService.getHeadlines().subscribe((response) => {
+
+    this.headlinesService.getBusiness().subscribe((response) => {
       this.headlines = response.News;
       this.headlines = this.headlines.filter((obj: { image: string, description: string }) => obj.image !== '' && obj.description != '');
       this.updatePagedHeadlines(); // Update the pagedHeadlines array
     });
   }
+
 
   pageChanged(event: any): void {
     this.currentPageIndex = event.pageIndex+1;
@@ -47,4 +49,3 @@ export class HomePageComponent implements OnInit {
   }
 
 }
-

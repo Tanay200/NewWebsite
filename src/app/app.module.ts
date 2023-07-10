@@ -10,11 +10,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BusinessComponent } from './business/business.component';
+import { WorldComponent } from './world/world.component';
+import { RouterModule } from '@angular/router';
+import { PoliticsComponent } from './politics/politics.component';
+import { SportsComponent } from './sports/sports.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    BusinessComponent,
+    WorldComponent,
+    PoliticsComponent,
+    SportsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxPaginationModule,
     MatSlideToggleModule,
     MatPaginatorModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule
   ],
   providers: [HeadlinesService],
   bootstrap: [AppComponent]
