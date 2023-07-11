@@ -114,8 +114,12 @@ header {
 }
 .dark-mode .navbar-item{
   color: #fff;
+  background-color: #152238;
 }
-
+.dark-mode .navbar-menu.is-active{
+  color: #fff;
+  background-color: #152238;
+}
 
 .dark-mode .news-card {
   background-color: #1b2d4a;
