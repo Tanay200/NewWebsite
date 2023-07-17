@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class HeadlinesService {
 
   darkMode: boolean = false;
+  loader : boolean = false;
 
   constructor(private httpClient : HttpClient) { }
 
@@ -28,7 +29,7 @@ export class HeadlinesService {
   }
 
   getCricketNews():Observable<any>{
-    return this.httpClient.get("assets/JSON/cricket.json");
+    return this.httpClient.get("assets/JSON/crypto.json");
     // return this.httpClient.get("https://newsapi.in/newsapi/news.php?key=WBh12EhlrRBbMwKfIB16sqQ7objzDc&category=india_english_cricket");
 
   }

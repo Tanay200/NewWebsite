@@ -19,10 +19,15 @@ export class SportsComponent implements OnInit {
   constructor(public headlinesService: HeadlinesService) { }
 
   ngOnInit(): void {
+    this.headlinesService.loader = true;
     this.headlinesService.getCricketNews().subscribe((response) => {
-      this.headlines = response.News;
-      this.headlines = this.headlines.filter((obj: { image: string, description: string }) => obj.image !== '' && obj.description != '');
-      this.updatePagedHeadlines(); // Update the pagedHeadlines array
+      if(response!=null){
+        this.headlinesService.loader = false;
+        this.headlines = response.News;
+        this.headlines = this.headlines.filter((obj: { image: string, description: string }) => obj.image !== '' && obj.description != '');
+        this.updatePagedHeadlines(); // Update the pagedHeadlines array
+      }
+
     });
   }
 
