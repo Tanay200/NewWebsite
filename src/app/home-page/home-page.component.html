@@ -11,7 +11,7 @@
 <div class="container" [ngClass]="{'dark-mode': headlinesService.darkMode}">
 
   <div class="news-container">
-    <div class="news-card" *ngFor="let article of pagedHeadlines" (click)="gotoPage(article.url)">
+    <div class="news-card" *ngFor="let article of pagedHeadlines">
       <div class="news-image">
         <img [src]="article.image" alt="Article Image" />
       </div>
